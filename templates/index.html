@@ -13,10 +13,11 @@
   <body>
     <div class="container">
       <!-- Add Jumbotron to Header -->
-      <div class="jumbotron text-center">
+      <div class="jumbotron text-center" style="background-image: url('https://sciexaminer.com/wp-content/uploads/2017/01/Mars-atmosphere.jpg'); 
+      background-size: cover; background-position: center; color: black">
         <h1>Mission to Mars</h1>
         <!-- Add a button to activate scraping script -->
-        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button">Scrape New Data</a></p>
+        <p><a class="btn btn-primary btn-lg" href="/scrape" role="button" style="background-color:black; border: none; color: white">Scrape New Data</a></p>
       </div>
 
       <!-- Add section for Mars News -->
@@ -60,13 +61,13 @@
           <h2 class="text-center">Mars Hemispheres</h2>
         </div>
         <!-- Hemisphere images -->
-        {% for hemisphere in mars.hemisphere_image.info %}
-        <div class="col-md-6">
-          <div class="thumbnail">
+        {% for hemisphere in mars.hemisphere_image_info %}
+        <div class="col-xs-6 col-md-3">
+          <div class="thumbnail" style="background-color: black;">
             <a href = "{{hemisphere.img_url}}" target = "_blank"></a>
              <div class="caption">
-              <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" alt="...">
-              <h3>{{hemisphere.title}}</h3>
+              <img src="{{hemisphere.img_url | default('static/images/error.png', true)}}" class="img-responsive" alt="...">
+              <h3 style="text-align:center; color: white;">{{hemisphere.title}}</h3>
             </div>
           </div>
         </div>
