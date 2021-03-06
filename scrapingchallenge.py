@@ -6,11 +6,10 @@ import datetime as dt
 
 # Windows users
 executable_path = {'executable_path':'C:/Users/ARCHANANarula/Downloads/chromedriver_win32/chromedriver.exe'}
+# Initiate headless driver for deployment
+browser = Browser('chrome', **executable_path, headless=True)
 
 def scrape_all():
-    # Initiate headless driver for deployment
-    browser = Browser('chrome', **executable_path, headless=True)
-
     news_title, news_paragraph = mars_news(browser)
 
     # Run all scraping functions and store results in a dictionary
@@ -25,6 +24,7 @@ def scrape_all():
 
     # Stop webdriver and return data
     browser.quit()
+    print(data)
     return data
 
 
